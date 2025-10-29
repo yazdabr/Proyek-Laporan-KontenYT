@@ -42,4 +42,9 @@ class Laporan extends Model
     {
         return $this->belongsTo(Operator::class, 'operator_b', 'id_operator');
     }
+    public function operator()
+    {
+        return $this->belongsTo(Operator::class, 'id_operator');
+    }
+
 }

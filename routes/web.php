@@ -17,6 +17,8 @@ Route::post('/laporan/store', [LaporanController::class, 'store'])->name('lapora
 Route::get('/lapdashboard', function () {
     return view('lapdashboard');
 });
+Route::get('/lapdashboard', [LaporanController::class, 'dashboard'])->name('lapdashboard');
+
 
 // laprekap
 Route::get('/laprekap', [LaporanController::class, 'index'])->name('laporan.index');

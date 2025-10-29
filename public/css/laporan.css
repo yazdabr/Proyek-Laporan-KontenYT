@@ -1,0 +1,169 @@
+    /* Styling dasar tetap */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0; position: absolute; width: 100%; height: 100%; cursor: pointer; left: 0; top: 0;
+    }
+    .select2-selection__clear, .select2-selection__arrow { display: none !important; }
+    .select2-container .select2-selection--single { height: 45px !important; line-height: 45px !important; font-size: 16px; }
+    .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 45px !important; padding-left: 10px !important; }
+    [x-cloak] { display: none !important; }
+
+    .bg-primary { background-color: #0D47A1; }
+    .text-primary { color: #0D47A1; }
+    .focus\:border-primary:focus { border-color: #0D47A1; }
+    .focus\:ring-primary:focus { --tw-ring-color: #0D47A1; }
+    .no-arrow { appearance: none; background-image: none !important; }
+
+    @media (min-width: 1024px) {
+        #sidebar {
+            transform: translateX(0) !important;
+        }
+    }
+
+    /* ===== TABLE VIEW (DEFAULT) ===== */
+    .table-responsive { 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0.5rem;
+    }
+    .table-responsive table {
+        min-width: 1000px;
+        font-size: 0.875rem;
+        width: 100%;
+    }
+    .table-responsive thead th {
+        position: sticky;
+        top: 0;
+        background-color: #e5e7eb; 
+        z-index: 10;
+        white-space: nowrap;
+    }
+    @media (min-width: 768px) {
+        .sticky-action {
+            position: sticky;
+            right: 0;
+            background-color: #f9fafb;
+            z-index: 15;
+            box-shadow: -3px 0 5px rgba(0,0,0,0.1);
+        }
+        .sticky-action.header {
+            background-color: #e5e7eb; 
+            z-index: 20;
+        }
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 639px) {
+        body {
+            font-size: 14px;
+        }
+
+        main {
+            padding: 0.75rem !important;
+        }
+
+        /* Header title */
+        h1.text-xl, h1.md\:text-2xl {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tombol di bawah judul */
+        .flex.flex-wrap.gap-3 {
+            flex-direction: column;
+            width: 100%;
+        }
+        .flex.flex-wrap.gap-3 a {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Filter Form */
+        #filterForm {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        #filterForm > div {
+            width: 100% !important;
+        }
+        #resetFilter {
+            width: 100%;
+        }
+        .select2-container {
+            width: 100% !important;
+        }
+
+        /* ==== MODE KARTU UNTUK LAPORAN ==== */
+        .table-responsive table {
+            display: none; /* sembunyikan tabel asli */
+        }
+
+        .card-view {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .laporan-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            border-left: 4px solid #003B69;
+            padding: 1rem;
+        }
+
+        .laporan-card h3 {
+            font-weight: 600;
+            color: #003B69;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .laporan-card p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 0.25rem;
+        }
+
+        .laporan-card .tanggal {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .laporan-card .aksi {
+            margin-top: 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .laporan-card .aksi button {
+            flex: 1;
+            font-size: 0.8rem;
+        }
+
+        /* Pagination & info */
+        .flex.flex-col.sm\:flex-row.justify-between.items-center {
+            flex-direction: column;
+            gap: 0.75rem;
+            text-align: center;
+        }
+
+        /* Modal detail */
+        .sm\:max-w-xl {
+            max-width: 90% !important;
+            width: 90% !important;
+        }
+    }
+    /* Buat layout tetap rapi walau zoom besar */
+    .container-responsive {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    @media (max-width: 1280px) {
+        .container-responsive {
+            max-width: 100%;
+            padding: 0 1rem;
+        }
+    }

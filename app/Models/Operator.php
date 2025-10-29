@@ -24,4 +24,9 @@ class Operator extends Model
     {
         return $this->hasMany(Laporan::class, 'operator_b', 'id_operator');
     }
+    public function laporan()
+    {
+        return $this->hasMany(Laporan::class, 'id_operator');
+    }
+
 }

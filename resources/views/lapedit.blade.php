@@ -38,8 +38,8 @@
 </head>
 <body class="flex bg-[#EDF2F9]" x-data="layout">
     <!-- Sidebar -->
-    <aside id="sidebar" x-cloak class="fixed inset-y-0 left-0 z-50 w-64 bg-[#6685A9] text-white flex flex-col transition-transform duration-300 transform lg:translate-x-0 lg:min-h-screen overflow-y-auto" :class="{ 'translate-x-0 ease-out': sidebarOpen, '-translate-x-full ease-in': !sidebarOpen }">
-        <div class="px-3 py-2 bg-[#2E4269] flex items-center sticky top-0 z-10 shadow-md">
+    <aside id="sidebar" x-cloak class="fixed inset-y-0 left-0 z-50 w-64 bg-[#4682B4] text-white flex flex-col transition-transform duration-300 transform lg:translate-x-0 lg:min-h-screen overflow-y-auto" :class="{ 'translate-x-0 ease-out': sidebarOpen, '-translate-x-full ease-in': !sidebarOpen }">
+        <div class="px-3 py-2 bg-[#1D3557] flex items-center sticky top-0 z-10 shadow-md">
             <img src="/images/logo.png" class="h-16">
             <button @click="sidebarOpen = false" class="lg:hidden ml-auto p-2 text-white hover:text-gray-200">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,17 +51,17 @@
             <div class="text-xs font-bold uppercase tracking-wide text-white rounded [letter-spacing:4px] p-4 mb-3">
                 Selamat Datang
             </div>
-            <a href="/lapdashboard" class="group flex items-center space-x-2 p-3 rounded hover:bg-[#CCD5E1] transition-all duration-300 ease-in-out">
+            <a href="/lapdashboard" class="group flex items-center space-x-2 p-3 rounded hover:bg-[#87CEFA] transition-all duration-300 ease-in-out">
                 <img src="/images/home.png" alt="Dashboard" class="w-5 h-5">
-                <span>Dashboard</span>
+                <span class="transition-transform duration-300 group-hover:translate-x-1">Dashboard</span>
             </a>
-            <a href="/lapinput" class="group flex items-center space-x-2 p-3 rounded hover:bg-[#CCD5E1] transition-all duration-300 ease-in-out">
-                <img src="/images/input.png" alt="" class="w-5 h-5">
-                <span>Tambahkan Laporan</span>
+            <a href="/lapinput" class="group flex items-center space-x-2 p-3 rounded hover:bg-[#87CEFA] transition-all duration-300 ease-in-out text-[#f6f6f6]">
+                <img src="/images/input.png" alt="" class="w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                <span class="transition-transform duration-300 group-hover:translate-x-1">Tambahkan Laporan</span>
             </a>
-            <a href="/laprekap" class="group flex items-center space-x-2 p-3 rounded bg-[#4F5F7C] text-[#f6f6f6] hover:bg-[#CCD5E1] transition-all duration-300 ease-in-out">
-                <img src="/images/daftar.png" alt="" class="w-5 h-5">
-                <span>Rekap Laporan</span>
+            <a href="/laprekap" class="group flex items-center space-x-2 p-3 rounded bg-[#1D3557] hover:bg-[#87CEFA] transition-all duration-300 ease-in-out">
+                <img src="/images/daftar.png" alt="" class="w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                <span class="transition-transform duration-300 group-hover:translate-x-1">Rekap Laporan</span>
             </a>
         </nav>
     </aside>
@@ -70,13 +70,13 @@
 
     <!-- Header -->
     <div class="flex-1 flex flex-col lg:ml-64">
-        <header class="flex items-center bg-[#A0B1C1] px-6 py-4 sticky top-0 z-30 shadow-md">
+        <header class="flex items-center bg-[#4682B4] px-6 py-4 sticky top-0 z-30 shadow-md">
             <button @click="sidebarOpen = true" class="lg:hidden p-2 text-[#003B69] hover:text-gray-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-            <div class="ml-auto lg:ml-0 px-3 py-3 bg-[#4F5F7C] text-[#F6F6F6] font-bold rounded">
+            <div class="ml-auto lg:ml-0 px-3 py-3 bg-[#1D3557] text-[#F6F6F6] font-bold rounded">
                 OPERATOR
             </div>
         </header>

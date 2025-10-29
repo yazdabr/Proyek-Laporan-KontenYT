@@ -6,6 +6,7 @@ use App\Models\Laporan;
 use App\Models\Pro;
 use App\Models\Operator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaporanController extends Controller
 {
@@ -37,14 +38,17 @@ class LaporanController extends Controller
             $query->whereMonth('tanggal', $request->bulan);
         }
 
-        // 👤 Filter operator
+        // ✅ Filter berdasarkan Operator A atau B
         if ($request->filled('operator')) {
-            $operator = $request->operator;
-            $query->where(function ($q) use ($operator) {
-                $q->where('operator_a', $operator)
-                ->orWhere('operator_b', $operator);
+            $query->where(function ($q) use ($request) {
+                $q->where('operator_a', $request->operator)
+                ->orWhere('operator_b', $request->operator);
             });
         }
+
+        $laporan = $query->paginate(10);
+        $operator = Operator::all(); // pastikan variabel ini dikirim ke view
+
 
         // Pagination dan simpan query string
         $laporan = $query->paginate(5)->appends($request->all());
@@ -52,7 +56,7 @@ class LaporanController extends Controller
         // Ambil semua operator untuk dropdown select2
         $operators = \App\Models\Operator::orderBy('nama_operator')->get();
 
-        return view('laprekap', compact('laporan', 'operators'));
+        return view('laprekap', compact('laporan', 'operator'));
     }
 
     public function store(Request $request)
@@ -114,5 +118,53 @@ class LaporanController extends Controller
         $laporan->update($validated);
 
         return redirect()->route('laporan.index')->with('success', 'Laporan berhasil diperbarui!');
+    }
+    public function dashboard(Request $request)
+    {
+        $bulan = $request->bulan;
+
+        // query dasar
+        $laporanQuery = Laporan::query();
+
+        // filter bulan (jika ada)
+        if ($bulan) {
+            $laporanQuery->whereMonth('tanggal', $bulan);
+        }
+
+        // total semua laporan (termasuk yang operatornya "-")
+        $totalLaporan = (clone $laporanQuery)->count();
+
+        // total laporan Operator A (operator_a != 1)
+        $totalA = (clone $laporanQuery)
+            ->where('operator_a', '!=', 1)   // <-- filter ID "-"
+            ->whereNotNull('operator_a')
+            ->count();
+
+        // total laporan Operator B (operator_b != 1)
+        $totalB = (clone $laporanQuery)
+            ->where('operator_b', '!=', 1)   // <-- filter ID "-"
+            ->whereNotNull('operator_b')
+            ->count();
+
+        // ambil laporan terbaru (5 terakhir sesuai filter)
+        $laporanTerbaru = (clone $laporanQuery)
+            ->orderBy('tanggal', 'desc')
+            ->take(4)
+            ->get();
+
+        // ambil daftar bulan unik dari tabel laporan
+        $daftarBulan = Laporan::selectRaw('MONTH(tanggal) as bulan')
+            ->distinct()
+            ->orderBy('bulan')
+            ->pluck('bulan');
+
+        return view('lapdashboard', compact(
+            'totalLaporan',
+            'totalA',
+            'totalB',
+            'laporanTerbaru',
+            'daftarBulan',
+            'bulan'
+        ));
     }
 }

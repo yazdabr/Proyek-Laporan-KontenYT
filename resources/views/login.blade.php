@@ -16,7 +16,7 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-image: linear-gradient(135deg, #1a274dff 0%, #77a3cbff 50%, #d8ecffff 100%);
+      background-image: linear-gradient(135deg, #1e3d58 0%, #43b0f1 50%, #1e3d58 100%);
       background-attachment: fixed;
       background-size: cover;
     }
@@ -60,7 +60,7 @@
 
         <!-- Tombol Login -->
         <button type="submit"
-          class="w-full py-3 bg-[#77a3cbff] hover:bg-[#adc2d7ff] text-white font-semibold rounded-full transition duration-300">
+          class="w-full py-3 bg-[#4682B4] hover:bg-[#1e3d58] text-white font-semibold rounded-full transition duration-300">
           Masuk
         </button>
       </form>
