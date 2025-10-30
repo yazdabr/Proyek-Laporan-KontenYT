@@ -7,6 +7,9 @@ use App\Models\Pro;
 use App\Models\Operator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Exports\LaporanExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class LaporanController extends Controller
 {
@@ -166,5 +169,12 @@ class LaporanController extends Controller
             'daftarBulan',
             'bulan'
         ));
+    }
+    public function exportExcel(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun', date('Y'));
+
+        return Excel::download(new LaporanExport($bulan, $tahun), 'Rekap Laporan Upload Konten Youtube.xlsx');
     }
 }

@@ -74,14 +74,14 @@
                 </h1>
                 
                 <div class="flex flex-wrap gap-3">
-                    <a href=" " 
-                        class="flex items-center justify-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-md shadow-md hover:bg-green-700 transition-colors duration-300 flex-shrink-0">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                d="M4 4v16h16V4H4zm4 10h8m-8-4h8M4 4l4 4m12-4l-4 4" />
-                        </svg>
-                        <span>Cetak Data</span>
+                    <a href="{{ route('laprekap.export', ['bulan' => request('bulan'), 'tahun' => request('tahun', date('Y'))]) }}" 
+                    class="flex items-center justify-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-md shadow-md hover:bg-green-700 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4zm4 10h8m-8-4h8M4 4l4 4m12-4l-4 4" />
+                    </svg>
+                    <span>Cetak Data</span>
                     </a>
+
                     <a href="/lapinput" 
                         class="flex items-center justify-center space-x-2 bg-[#2E4269] text-white font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#87CEFA] transition-colors duration-300 flex-shrink-0">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

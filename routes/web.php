@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LaporanController;
+use App\Exports\LaporanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,4 @@ Route::get('/laprekap', [LaporanController::class, 'index'])->name('laporan.inde
 Route::delete('/laporan/{id}', [LaporanController::class, 'destroy'])->name('laporan.destroy');
 Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
 Route::put('/laporan/{id}', [LaporanController::class, 'update'])->name('laporan.update');
+Route::get('/laprekap/export', [LaporanController::class, 'exportExcel'])->name('laprekap.export');
