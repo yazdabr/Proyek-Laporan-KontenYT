@@ -77,10 +77,14 @@
             </a>
         </nav>
         <div class="p-4 mt-auto lg:hidden">
-            <button type="button" class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded-md hover:bg-gray-400 transition-colors duration-300">
-                <img src="/images/user.png" class="w-5 h-5" alt="user">
-                <span>Log Out</span>
-            </button>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                    class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded hover:bg-gray-400 transition">
+                    <img src="/images/user.png" class="w-5 h-5" alt="user">
+                    <span>Log Out</span>
+                </button>
+            </form>
         </div>
     </aside>
 
@@ -97,10 +101,14 @@
                 OPERATOR
             </div>
             <div class="hidden lg:flex ml-auto">
-                <button type="button" class="flex items-center space-x-2 bg-[#1D3557] text-[#F6F6F6] font-bold px-3 py-3 rounded-md hover:bg-gray-400 transition-colors duration-300">
-                    <img src="/images/user.png" class="w-5 h-5" alt="user">
-                    <span>Log Out</span>
-                </button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded hover:bg-gray-400 transition">
+                        <img src="/images/user.png" class="w-5 h-5" alt="user">
+                        <span>Log Out</span>
+                    </button>
+                </form>
             </div>
         </header>
 
@@ -121,13 +129,6 @@
 
                     <div class="space-y-5">
                         <div>
-                            <label for="link_youtube" class="font-semibold mb-2 block text-gray-700">Link YouTube</label>
-                            <input type="url" id="link_youtube" name="link_youtube"
-                                class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
-                                placeholder="Contoh: https://youtu.be/..." required>
-                        </div>
-
-                        <div>
                             <label for="acara" class="font-semibold mb-2 block text-gray-700">Acara</label>
                             <input type="text" id="acara" name="acara"
                                 class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
@@ -147,6 +148,17 @@
                                 class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
                                 placeholder="Masukkan Nama Narasumber">
                         </div>
+
+                        <div>
+                            <label for="link_youtube" class="font-semibold mb-2 block text-gray-700">Link YouTube</label>
+                            <input 
+                                type="url" 
+                                id="link_youtube" 
+                                name="link_youtube"
+                                class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
+                                placeholder="Contoh: https://youtu.be/...">
+                        </div>
+
                     </div>
                 </div>
 

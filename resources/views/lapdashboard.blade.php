@@ -69,10 +69,14 @@
             </a>
         </nav>
         <div class="p-4 mt-auto lg:hidden">
-            <button type="button" class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded hover:bg-gray-400">
-                <img src="/images/user.png" class="w-5 h-5" alt="user">
-                <span>Log Out</span>
-            </button>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                    class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded hover:bg-gray-400 transition">
+                    <img src="/images/user.png" class="w-5 h-5" alt="user">
+                    <span>Log Out</span>
+                </button>
+            </form>
         </div>
     </aside>
 
@@ -89,10 +93,14 @@
                 OPERATOR
             </div>
             <div class="hidden lg:flex ml-auto">
-                <button type="button" class="flex items-center space-x-2 bg-[#1D3557] text-[#F6F6F6] font-bold px-3 py-3 rounded-md hover:bg-gray-400 transition-colors duration-300">
-                    <img src="/images/user.png" class="w-5 h-5" alt="user">
-                    <span>Log Out</span>
-                </button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="w-full flex items-center justify-center space-x-2 bg-[#4F5F7C] text-[#F6F6F6] font-bold px-3 py-3 rounded hover:bg-gray-400 transition">
+                        <img src="/images/user.png" class="w-5 h-5" alt="user">
+                        <span>Log Out</span>
+                    </button>
+                </form>
             </div>
         </header>
 
@@ -194,6 +202,37 @@
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="{{ asset('js/laporan.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if(session('success'))
+    <script>
+    Swal.fire({
+    icon: 'success',
+    title: 'Berhasil Login',
+    text: '{{ session("success") }}',
+    position: 'top',
+    toast: true,
+    showConfirmButton: false,
+    timer: 2200,
+    timerProgressBar: true,
+    backdrop: false,
+    customClass: {
+        popup: 'animate__animated animate__fadeInDown custom-toast'
+    },
+    didOpen: (toast) => {
+        toast.style.width = '580px';
+        toast.style.minHeight = '46px';
+        toast.style.fontSize = '13px';
+        toast.style.padding = '10px 18px';
+        toast.style.textAlign = 'center';
+        toast.style.whiteSpace = 'nowrap';
+    }
+    });
+    </script>
+    @endif
+
+    <!-- Tambahkan animate.css untuk efek jatuh -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 </body>
 </html>

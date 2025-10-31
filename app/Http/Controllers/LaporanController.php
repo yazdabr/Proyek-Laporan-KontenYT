@@ -6,9 +6,12 @@ use App\Models\Laporan;
 use App\Models\Pro;
 use App\Models\Operator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Exports\LaporanExport;
 use Maatwebsite\Excel\Facades\Excel;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash; 
+
 
 
 class LaporanController extends Controller
@@ -70,7 +73,7 @@ class LaporanController extends Controller
             'acara' => 'required|string',
             'topik' => 'required|string',
             'narasumber' => 'nullable|string',
-            'link_youtube' => 'required|url',
+            'link_youtube' => 'nullable|url',
             'operator_a' => 'nullable|string',
             'operator_b' => 'nullable|string',
             'media' => 'nullable|string',
