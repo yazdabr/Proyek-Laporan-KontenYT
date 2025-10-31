@@ -57,7 +57,7 @@ class LaporanController extends Controller
 
 
         // Pagination dan simpan query string
-        $laporan = $query->paginate(5)->appends($request->all());
+        $laporan = $query->paginate(3)->appends($request->all());
 
         // Ambil semua operator untuk dropdown select2
         $operators = \App\Models\Operator::orderBy('nama_operator')->get();
