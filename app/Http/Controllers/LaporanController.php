@@ -29,17 +29,14 @@ class LaporanController extends Controller
             });
         }
 
-        // 🎯 Filter acara dari select2
         if ($request->filled('acara')) {
             $query->where('acara', $request->acara);
         }
 
-        // 🎯 Filter topik dari select2
         if ($request->filled('topik')) {
             $query->where('topik', $request->topik);
         }
 
-        // 📅 Filter bulan
         if ($request->filled('bulan')) {
             $query->whereMonth('tanggal', $request->bulan);
         }
