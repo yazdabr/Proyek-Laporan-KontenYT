@@ -14,18 +14,30 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-image: linear-gradient(135deg, #1e3d58 0%, #43b0f1 50%, #1e3d58 100%);
+      /* background-image: linear-gradient(135deg, #1e3d58 0%, #43b0f1 50%, #1e3d58 100%);
       background-attachment: fixed;
-      background-size: cover;
+      background-size: cover; */
     }
   </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-6">
 
-  <div class="bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row w-full max-w-4xl overflow-hidden">
+  <!-- VIDEO BACKGROUND -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="fixed inset-0 w-full h-full object-cover z-0">
+    <source src="/videos/vud.mp4" type="video/mp4">
+  </video>
 
+  <!-- OVERLAY -->
+  <div class="fixed inset-0 bg-black/50 z-10"></div>
+
+  <div class="relative z-20 bg-white/40 backdrop-blur-md rounded-2xl shadow-2xl flex flex-col md:flex-row w-full max-w-4xl overflow-hidden">
     <!-- Kolom kiri (gambar besar, desktop only) -->
-    <div class="hidden md:flex md:w-1/2 bg-gray-50 items-center justify-center p-10">
+     <div class="hidden md:flex md:w-1/2 bg-white/20 backdrop-blur-md items-center justify-center p-10">
       <img src="/images/logorri.png" alt="Logo RRI" class="w-56 h-auto">
     </div>
 
